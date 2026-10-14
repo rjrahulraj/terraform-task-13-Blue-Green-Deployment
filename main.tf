@@ -58,7 +58,7 @@ data "aws_ssm_parameter" "ami" {
 
 
 resource "aws_lb" "this" {
-  name               = "${var.prefix}-alb"
+  name               = "${var.prefix}-lb"
   load_balancer_type = "application"
   subnets            = [for s in data.aws_subnet.public : s.id]
   security_groups    = [data.aws_security_group.lb.id]
